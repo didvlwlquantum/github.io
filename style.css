@@ -1,0 +1,318 @@
+/* --- 기본 및 폰트 설정 --- */
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&family=Gowun+Dodum&family=Noto+Sans+KR:wght@400;700&family=Noto+Serif+KR:wght@700&display=swap');
+
+:root {
+    --bg-color: #f5f5dc; /* 베이지 */
+    --text-color: #333333;
+    --title-color: #5d4037; /* 진한 갈색 */
+    --accent-color: #0277bd; /* 청사진 파랑 */
+    --container-bg: #ffffff;
+    --border-color: #d2b48c; /* 옅은 갈색 (테두리용) */
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.7;
+    margin: 0;
+    padding: 1rem;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Noto Serif KR', serif;
+    color: var(--title-color);
+    margin-top: 0;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* --- 레이아웃 및 컨테이너 --- */
+.case-file-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2.5rem;
+    background: var(--container-bg);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15), 0 3px 6px rgba(0,0,0,0.1);
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    position: relative;
+    border-top: 5px solid var(--title-color);
+}
+
+.case-section {
+    padding: 2rem 0;
+    border-bottom: 1px dashed var(--border-color);
+}
+.case-section:last-of-type {
+    border-bottom: none;
+}
+
+.section-title-box {
+    border-bottom: 2px solid var(--title-color);
+    margin-bottom: 1.5rem;
+    display: inline-block;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+/* --- 헤더 및 푸터 스타일 --- */
+.page-header {
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1.5rem;
+    margin-bottom: 1rem;
+}
+.page-header .header-top {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Gowun Dodum', sans-serif;
+    color: #777;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+.page-header h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+.page-header h2 {
+    font-size: 1.2rem;
+    font-weight: normal;
+    color: #666;
+    font-family: 'Gowun Batang', serif;
+}
+.page-footer {
+    text-align: center;
+    padding-top: 2rem;
+    font-family: 'Gowun Dodum', sans-serif;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* --- 타임라인 스타일 --- */
+.timeline-container {
+    position: relative;
+    padding-left: 30px; /* 점과 선을 위한 공간 */
+    border-left: 3px solid var(--border-color);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+    opacity: 0; /* JS 애니메이션용 */
+    transform: translateX(20px); /* JS 애니메이션용 */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+.timeline-item.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -40px;
+    top: 5px;
+    width: 15px;
+    height: 15px;
+    background-color: var(--title-color);
+    border-radius: 50%;
+    border: 3px solid var(--bg-color);
+}
+
+.timeline-content h3 {
+    margin-bottom: 0.5rem;
+    color: var(--accent-color);
+}
+.timeline-content p {
+    margin-bottom: 0;
+}
+
+/* --- 개념 카드(Breakthrough) 스타일 --- */
+.concept-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.concept-card-button {
+    background: #fdfdfd;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-family: inherit;
+}
+.concept-card-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    border-color: var(--accent-color);
+}
+.concept-card-button h4 {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+.concept-card-button p {
+    font-family: 'Gowun Dodum', sans-serif;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0;
+}
+
+/* --- 연구 노트 스타일 --- */
+.memo-description {
+    font-family: 'Gowun Dodum', serif;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+    color: #666;
+}
+#notebook-textarea {
+    width: 100%;
+    min-height: 150px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 1rem;
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 1rem;
+    line-height: 1.8;
+    resize: vertical;
+    margin-top: 0.5rem;
+    background-image: linear-gradient(to bottom, transparent 0%, transparent 97%, #eee 97%);
+    background-size: 100% 2.0em; /* 줄 간격과 맞춤 */
+}
+#save-notes-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    background-color: var(--title-color);
+    color: white;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.2s;
+}
+#save-notes-btn:hover {
+    background-color: #4a322a;
+}
+
+/* --- 모달 스타일 --- */
+.modal {
+    display: none; /* JS로 제어 */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+    animation: fadeIn 0.3s;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 2.5rem;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative;
+    animation: slideIn 0.4s;
+}
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.close-button:hover,
+.close-button:focus {
+    color: black;
+}
+#modal-title {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+#modal-text {
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+}
+
+
+/* --- 반응형 미디어 쿼리 --- */
+@media (max-width: 768px) {
+    /* 태블릿 스타일 */
+    body { padding: 0.5rem; }
+    .case-file-container {
+        margin: 1rem auto;
+        padding: 1.5rem;
+    }
+    .page-header h1 { font-size: 2.5rem; }
+    .section-title { font-size: 1.5rem; }
+    .concept-card-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .modal-content {
+        width: 90%;
+        margin: 20% auto;
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* 모바일 스타일 */
+    .case-file-container {
+        padding: 1rem;
+    }
+    .page-header h1 { font-size: 2rem; }
+    .page-header .header-top {
+        font-size: 0.8rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+    .timeline-container {
+        padding-left: 20px;
+        border-left-width: 2px;
+    }
+    .timeline-dot {
+        left: -30px;
+        width: 12px;
+        height: 12px;
+    }
+    .modal-content {
+        margin: 25% auto;
+        padding: 1.5rem;
+    }
+    #modal-title { font-size: 1.2rem; }
+    #modal-text { font-size: 1rem; }
+}
