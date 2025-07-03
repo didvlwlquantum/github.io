@@ -1,0 +1,9 @@
+
+{
+  "name": "Project Genesis: An Interactive Workbook",
+  "description": "An interactive, story-driven workbook where the user's decisions, based on scientific and historical concepts, shape the fate of an empire. The experience culminates in a report for a tutor.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
